@@ -8,7 +8,8 @@ RSpec.configure do |config|
         saver = Capybara::Screenshot::Saver.new(Capybara, Capybara.page, true, filename_prefix)
         saver.save
 
-        example.metadata[:full_description] += "\n     Screenshot: file://#{saver.screenshot_path}"
+        example.metadata[:full_description] += "\n     HTML snapshot: file://#{saver.html_path}"
+        example.metadata[:full_description] += "\n     Screenshot:    file://#{saver.screenshot_path}"
       end
     end
   end
